@@ -57,7 +57,7 @@
 
                     <main class="mt-6">
                         <h1>Page welcome</h1>
-                        <livewire:collection-component/>
+
                     </main>
 
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
