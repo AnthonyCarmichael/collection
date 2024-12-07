@@ -17,6 +17,8 @@ class CollectionSeeder extends Seeder
             // Vous n'ajoutez pas de valeur pour 'id_collection', car elle est auto-incrémentée
             'created_at' => now(),
             'updated_at' => now(),
+            'nom' => 'Old Collection',
+            'id_user' => 1
         ]);
     }
 }

@@ -16,9 +16,17 @@ return new class extends Migration
             $table->bigIncrements('id_collection'); // Clé primaire automatiquement créée avec "bigIncrements()".
             // "usigned()" nécessaire pour éventuellement pouvoir définir une clé étrangère sur cette colonne.
             $table->timestamps();
-        });
-    }
+            $table->string('nom');
+            $table->bigInteger('id_user')->unsigned();
 
+        });
+
+        Schema::table('collections', function (Blueprint $table) {
+            $table->foreign('id_user')->references('id')->on('users');
+        });
+
+    }
+ 
     /**
      * Reverse the migrations.
      */
