@@ -12,8 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('chansons', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->engine = 'InnoDB'; // Pour pouvoir utiliser les clés étrangères et les transactions
+            $table->bigIncrements('id_chanson'); // Clé primaire automatiquement créée avec "bigIncrements()".
+            // "usigned()" nécessaire pour éventuellement pouvoir définir une clé étrangère sur cette colonne.
+            $table->integer('no')->nullable();
+            $table->string('nom');
+            $table->time('duree')->nullable();
+            $table->string('filePath');
+            $table->text('parole')->nullable();
+            $table->bigInteger('id_album')->usigned();
+            $table->bigInteger('id_langue')->usigned();
+            $table->bigInteger('id_genre')->usigned();
         });
     }
 
