@@ -10,4 +10,8 @@ class Chanson extends Model
     {
         return $this->belongsToMany(Liste::class);
     }
+    public function collection()
+    {
+        return $this->belongsTo(Collection::class);
+    }
 }

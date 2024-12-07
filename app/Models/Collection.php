@@ -23,5 +23,10 @@ class Collection extends Model
     {
         return $this->belongsTo(User::class, 'id_user');
     }
+
+    public function chansons()
+    {
+        return $this->hasMany(Chanson::class,"id_collection","id_collection");
+    }
    
 }

@@ -21,6 +21,12 @@ return new class extends Migration
             $table->year('annee')->nullable();
             $table->bigInteger('id_artiste')->unsigned();
         });
+
+        Schema::table('albums', function (Blueprint $table) {
+            $table->foreign('id_artiste')->references('id_artiste')->on('artistes');
+        });
+
+        
     }
 
     /**

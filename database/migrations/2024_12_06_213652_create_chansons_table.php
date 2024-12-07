@@ -17,14 +17,23 @@ return new class extends Migration
             // "usigned()" nécessaire pour éventuellement pouvoir définir une clé étrangère sur cette colonne.
             $table->integer('no')->nullable();
             $table->string('nom');
-            $table->time('duree')->nullable();
+            $table->integer('duree')->nullable();
             $table->string('filePath');
             $table->text('parole')->nullable();
             $table->bigInteger('id_album')->unsigned();
-            $table->bigInteger('id_langue')->unsigned();
-            $table->bigInteger('id_genre')->unsigned();
+            $table->bigInteger('id_langue')->unsigned()->nullable();
+            $table->bigInteger('id_genre')->unsigned()->nullable();
             $table->bigInteger('id_collection')->unsigned();
 
+        });
+
+        
+        Schema::table('chansons', function (Blueprint $table) {
+            $table->foreign('id_album')->references('id_album')->on('albums');
+            $table->foreign('id_langue')->references('id_langue')->on('langues');
+            $table->foreign('id_genre')->references('id_genre')->on('genres');
+            $table->foreign('id_collection')->references('id_collection')->on('collections');
+        
         });
     }
 
