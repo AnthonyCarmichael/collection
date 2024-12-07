@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('folderPath');
             $table->string('imgPath');
             $table->year('annee')->nullable();
-            $table->bigInteger('id_artiste')->usigned();
+            $table->bigInteger('id_artiste')->unsigned();
         });
     }
 

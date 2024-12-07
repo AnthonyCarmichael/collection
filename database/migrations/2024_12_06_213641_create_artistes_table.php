@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('nom');
             $table->string('folderPath');
             $table->string('imgPath');
-            $table->bigInteger('id_collection')->usigned();
         });
     }
 

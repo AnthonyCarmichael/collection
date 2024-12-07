@@ -20,9 +20,11 @@ return new class extends Migration
             $table->time('duree')->nullable();
             $table->string('filePath');
             $table->text('parole')->nullable();
-            $table->bigInteger('id_album')->usigned();
-            $table->bigInteger('id_langue')->usigned();
-            $table->bigInteger('id_genre')->usigned();
+            $table->bigInteger('id_album')->unsigned();
+            $table->bigInteger('id_langue')->unsigned();
+            $table->bigInteger('id_genre')->unsigned();
+            $table->bigInteger('id_collection')->unsigned();
+
         });
     }
 
