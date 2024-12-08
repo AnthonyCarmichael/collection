@@ -23,7 +23,7 @@ return new class extends Migration
             $table->bigInteger('id_album')->unsigned();
             $table->bigInteger('id_langue')->unsigned()->nullable();
             $table->bigInteger('id_genre')->unsigned()->nullable();
-            $table->bigInteger('id_collection')->unsigned();
+            $table->bigInteger('id_user')->unsigned();
 
         });
 
@@ -32,7 +32,7 @@ return new class extends Migration
             $table->foreign('id_album')->references('id_album')->on('albums');
             $table->foreign('id_langue')->references('id_langue')->on('langues');
             $table->foreign('id_genre')->references('id_genre')->on('genres');
-            $table->foreign('id_collection')->references('id_collection')->on('collections');
+            $table->foreign('id_user')->references('id')->on('users');
         
         });
     }

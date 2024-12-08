@@ -13,10 +13,22 @@ class ArtisteSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('artistes')->insert([
+        DB::table('artistes')->insert([[
             'nom' => 'Philippe Brach',
             'folderPath' => 'Philippe Brach', 
-            'imgPath' => 'Philippe Brach',
-        ]);
+            'imgPath' => 'Philippe Brach.jpg',
+        ], [
+            'nom' => 'Mac DeMarco',
+            'folderPath' => 'Mac DeMarco', 
+            'imgPath' => 'Mac DeMarco.jpg',
+        ], [
+            'nom' => 'L\'Impératrice',
+            'folderPath' => 'imperatrice', 
+            'imgPath' => 'imperatrice.jpg',
+        ],[
+            'nom' => 'King Gizzard & The Lizard Wizard',
+            'folderPath' => 'kingGiz', 
+            'imgPath' => 'kingGiz.jpg',
+        ]]);
     }
 }

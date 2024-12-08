@@ -20,7 +20,7 @@ class Chanson extends Model
         'id_album',
         'id_langue',
         'id_genre',
-        'id_collection',
+        'id_user',
 
     ];
 
@@ -31,9 +31,9 @@ class Chanson extends Model
     {
         return $this->belongsToMany(Liste::class);
     }
-    public function collection()
+    public function user()
     {
-        return $this->belongsTo(Collection::class);
+        return $this->belongsTo(User::class);
     }
 
     public function album()
