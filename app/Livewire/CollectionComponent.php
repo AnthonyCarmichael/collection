@@ -49,12 +49,15 @@ class CollectionComponent extends Component
         
     }
 
-    public function selectedCollection($id = 0){
-        if ($id) 
+    public function selectedCollection($id){
+        if ($id) {
             $this->collectionSelected = Collection::find($id);
-        else 
-            $this->collectionSelected = null;
+            $this->elementAffiche = $this->collectionSelected->artistes->unique('id_artiste');
+        } 
+    }
 
-        
+    public function allCollection() {
+        $this->collectionSelected = null;
+        $this->elementAffiche = Artiste::whereHas('albums.chansons')->distinct()->get();
     }
 }

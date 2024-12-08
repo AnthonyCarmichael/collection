@@ -3,7 +3,7 @@
 
         <section class="bg-blue-100 p-2 mr-2 rounded w-1/4">
             <h2 class="text-center text-xl font-bold">Collections :</h2>
-            <button class="text-sm m-auto w-40 hover:bg-blue-400 block bg-blue-500 text-white p-2 mt-2 rounded" wire:click="selectedCollection()">Collection complète</button>
+            <button class="text-sm m-auto w-40 hover:bg-blue-400 block bg-blue-500 text-white p-2 mt-2 rounded" wire:click="allCollection">Collection complète</button>
             
             @foreach ($collectionsArr as $collection )
                 <button class="text-sm m-auto w-40 hover:bg-blue-400 block bg-blue-500 text-white p-2 mt-2 rounded" wire:click="selectedCollection({{$collection->id_collection}})">{{$collection->nom}}</button>
@@ -15,9 +15,9 @@
             <p class="text-center text-sm font-medium text-gray-700">{{isset($collectionSelected) ? $collectionSelected->nom : 'Collection complète'}}</p>
 
 
-            @if (isset($collectionSelected))
-                @foreach ($collectionSelected->chansons as $chanson)
-                    <p>{{$chanson->nom}}</p>
+            @if (isset($elementAffiche))
+                @foreach ($elementAffiche as $element)
+                    <p>{{$element->nom}}</p>
                 
                 @endforeach
             @endif
