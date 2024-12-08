@@ -24,7 +24,9 @@ class CollectionComponent extends Component
     }
 
     public function updatedFilterArtiste($value) {
-        dd($value);
+        
+        $this->albumArr = Album::all();
+
     }
     
 }
