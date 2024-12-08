@@ -21,6 +21,7 @@ class CollectionComponent extends Component
     
     public function mount() {
         $this->refreshCollections();
+        $this->allCollection();
     }
 
     public function refreshCollections() {

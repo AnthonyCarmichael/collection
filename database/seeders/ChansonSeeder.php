@@ -19,7 +19,7 @@ class ChansonSeeder extends Seeder
             'duree' => 82,
             'filePath' => 'Portraits de famine.mp3', 
             'id_album' => 1,
-            'id_collection' => 1
+            'id_collection' => 3
         ]);
     }
 }
