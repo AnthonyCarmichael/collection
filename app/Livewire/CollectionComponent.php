@@ -52,7 +52,13 @@ class CollectionComponent extends Component
     public function selectedCollection($id){
         if ($id) {
             $this->collectionSelected = Collection::find($id);
-            $this->elementAffiche = $this->collectionSelected->artistes->unique('id_artiste');
+            $this->elementAffiche = Collection::find($id)
+                ->chansons()
+                ->join('albums', 'chansons.id_album', '=', 'albums.id_album')
+                ->join('artistes', 'albums.id_artiste', '=', 'artistes.id_artiste')
+                ->select('artistes.id_artiste', 'artistes.nom')  // Sélectionner uniquement les artistes
+                ->distinct()  // Pour s'assurer qu'il n'y a pas de doublons
+            ->get();
         } 
     }
 
@@ -60,4 +66,6 @@ class CollectionComponent extends Component
         $this->collectionSelected = null;
         $this->elementAffiche = Artiste::whereHas('albums.chansons')->distinct()->get();
     }
+
+    
 }
