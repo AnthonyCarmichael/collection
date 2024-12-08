@@ -21,7 +21,7 @@
         <div class="w-1/3">
             <label class="block text-center" for="annee">Année de parrution:</label>
             <div class="flex justify-center">
-                <input wire:input ="updateFilter" wire:model="filterAnnee" type="text" name="annee" id="annee" placeholder="Rechercher par année" 
+                <input wire:input ="updateFilter" wire:model="filterAnnee" type="text" pattern="[0-9]"  onkeypress="return /[0-9]/i.test(event.key)" name="annee" id="annee" placeholder="Rechercher par année" 
                     class="text-gray-700 rounded border-gray-300">
             </div>
 
