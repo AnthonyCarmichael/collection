@@ -23,7 +23,7 @@
         <div class="">
             <div class="">
                 <div class="">
-                    <header class="">
+                    <header class="m-10">
 
                         @if (Route::has('login'))
                             <nav class="-mx-3 flex flex-1 justify-end">
@@ -55,8 +55,8 @@
                         @endif
                     </header>
 
-                    <main class="mt-6">
-                        <h1>Page welcome</h1>
+                    <main class="text-center">
+                        <h1 class="m-20 text-xl font-bold">Welcome</h1>
 
                     </main>
 
