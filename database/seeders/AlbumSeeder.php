@@ -15,39 +15,39 @@ class AlbumSeeder extends Seeder
     {
         DB::table('albums')->insert([[
             'nom' => 'Portraits de famine',
-            'folderPath' => 'Portraits de famine', 
-            'imgPath' => 'Portraits de famine',
+            'folderPath' => 'collection/Philippe Brach/Philippe Brach - Portraits de famine', 
+            'imgPath' => 'collection/Philippe Brach/Philippe Brach - Portraits de famine/cover.jpg',
             'annee' => '2015',
             'id_artiste' => 1,
         ], [
             'nom' => 'This Old Dog',
-            'folderPath' => 'This Old Dog', 
-            'imgPath' => 'This Old Dog.jpg',
+            'folderPath' => 'collection/Mac DeMarco/Mac DeMarco - This Old Dog', 
+            'imgPath' => 'collection/Mac DeMarco/Mac DeMarco - This Old Dog/cover.jpg',
             'annee' => '2017',
             'id_artiste' => 2,
 
         ], [
             'nom' => 'Tako Tsubo',
-            'folderPath' => 'Tako Tsubo', 
-            'imgPath' => 'imgPath.jpg',
+            'folderPath' => 'collection/L\'Impératrice\L\'Impératrice - Tako Tsubo', 
+            'imgPath' => 'collection/L\'Impératrice\L\'Impératrice - Tako Tsubo/cover.jpg',
             'annee' => '2021',
             'id_artiste' => 3,
         ],[
             'nom' => 'Matahari',
-            'folderPath' => 'matahari', 
-            'imgPath' => 'matahari.jpg',
+            'folderPath' => 'collection/L\'Impératrice\L\'Impératrice - Matahari', 
+            'imgPath' => 'collection/L\'Impératrice\L\'Impératrice - Matahari/cover.jpg',
             'annee' => '2018',
             'id_artiste' => 3,
         ],[
             'nom' => 'Live At Red Rocks \'22',
-            'folderPath' => 'Live At Red Rocks', 
-            'imgPath' => 'Live At Red Rocks.jpg',
+            'folderPath' => 'collection/King Gizzard & The Lizard Wizard/King Gizzard & The Lizard Wizard - Live At Red Rocks \'22', 
+            'imgPath' => 'collection/King Gizzard & The Lizard Wizard/King Gizzard & The Lizard Wizard - Live At Red Rocks \'22/cover.png',
             'annee' => '2023',
             'id_artiste' => 4,
         ],[
             'nom' => 'Ice, Death, Planets, Lungs, Mushrooms and Lava',
-            'folderPath' => 'Ice, Death, Planets, Lungs, Mushrooms and Lava', 
-            'imgPath' => 'Ice, Death, Planets, Lungs, Mushrooms and Lava.jpg',
+            'folderPath' => 'collection/King Gizzard & The Lizard Wizard/King Gizzard & The Lizard Wizard - Ice- Death- Planets- Lungs- Mushrooms and Lava', 
+            'imgPath' => 'collection/King Gizzard & The Lizard Wizard/King Gizzard & The Lizard Wizard - Ice- Death- Planets- Lungs- Mushrooms and Lava/cover.jpg',
             'annee' => '2022',
             'id_artiste' => 4,
         ]]);

@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('collections')" :active="request()->routeIs('collections')">
-                        {{ __('Collections') }}
+                        {{ __('Collection') }}
                     </x-nav-link>
                 </div>
             </div>
