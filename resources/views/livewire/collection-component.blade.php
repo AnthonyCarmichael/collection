@@ -3,7 +3,7 @@
         <div class="w-1/3">
             <label class="block text-center" for="artiste">Artiste:</label>
             <div class="flex justify-center">
-                <input wire:model.live="filterArtiste" type="text" name="artiste" id="artiste" placeholder="Rechercher par artiste" 
+                <input wire:input ="updateFilter" wire:model="filterArtiste" type="text" name="artiste" id="artiste" placeholder="Rechercher par artiste" 
                     class="text-gray-700 rounded border-gray-300">
             </div>
 
@@ -12,7 +12,7 @@
         <div class="w-1/3">
             <label class="block text-center" for="album">Album:</label>
             <div class="flex justify-center">
-                <input type="text" name="album" id="album" placeholder="Rechercher par album" 
+                <input wire:input ="updateFilter" wire:model="filterAlbum" type="text" name="album" id="album" placeholder="Rechercher par album" 
                     class="text-gray-700 rounded border-gray-300">
             </div>
 
@@ -21,7 +21,7 @@
         <div class="w-1/3">
             <label class="block text-center" for="annee">Année de parrution:</label>
             <div class="flex justify-center">
-                <input type="text" name="annee" id="annee" placeholder="Rechercher par année" 
+                <input wire:input ="updateFilter" wire:model="filterAnnee" type="text" name="annee" id="annee" placeholder="Rechercher par année" 
                     class="text-gray-700 rounded border-gray-300">
             </div>
 
