@@ -20,6 +20,9 @@ class CollectionComponent extends Component
     public $filterAlbum = null;
     public $filterAnnee = null;
 
+    // upload
+    public $files = [];
+
     public function mount(){
         $this->albumArr = Album::all();
     }
@@ -32,6 +35,11 @@ class CollectionComponent extends Component
         ->where('albums.nom', 'like', '%'.addslashes($this->filterAlbum).'%')
         ->where('albums.annee', 'like', '%'.addslashes($this->filterAnnee).'%')
         ->get();
+    }
+
+    public function openModalUpload() {
+        $this->dispatch('open-modal', name: 'uploadModal');
+        
     }
     
 }
