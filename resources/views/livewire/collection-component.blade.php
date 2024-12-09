@@ -1,4 +1,10 @@
 <div>
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <!-- upload section -->
     <section class="m-2">
         <button wire:click="openModalUpload" class="bg-blue-400 px-2 rounded text-white hover:bg-blue-600">upload +</button>
