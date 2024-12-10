@@ -64,15 +64,7 @@
 
     <!-- section modal -->
     <x-modal title="Ajouter un album" name="uploadModal" :show="false">
-        <form action="{{ route('upload.folder') }}" method="POST" enctype="multipart/form-data">
-            @csrf    
-            <label for="nom" class="block text-sm font-medium text-gray-700">Choisir un album</label>
-            <input type="file" name="files[]" multiple webkitdirectory wire:model="files">
-            <button type="submit">Uploader</button>
-            <div class="text-green-500" wire:loading.delay wire:target="files">
-                Chargement ...
-            </div>
-        </form>
+        
         <livewire:FileUpload/>
     </x-modal>
 

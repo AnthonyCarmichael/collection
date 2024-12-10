@@ -20,10 +20,10 @@ class FileUpload extends Component
             $originalFileName = $file->getClientOriginalName();
 
             // Enregistrer le fichier avec son nom original
-            $file->storeAs('uploads', $originalFileName);
+            $file->storeAs('uploads', $originalFileName, 'public');
         }
         
-        session()->flash('success', 'Fichier téléchargé avec succès!');
+        session()->flash('success', 'Album ajouté');
         $this->cleanLivewireTmp();
         return redirect()->route('collections');
         
@@ -36,6 +36,11 @@ class FileUpload extends Component
         if (File::exists($path)) {
             File::cleanDirectory($path);  // Nettoyer les fichiers
         }
+    }
+
+    public function resetPond() {
+        $this->files = [];
+        $this->dispatch('pondReset');
     }
 
     public function render()
