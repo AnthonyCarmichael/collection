@@ -7,8 +7,10 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "james-heinrich/getid3": "^1.9",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
+        "league/commonmark": "2.6",
         "livewire/livewire": "^3.5",
         "spatie/livewire-filepond": "^1.4"
     },
