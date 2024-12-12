@@ -49,19 +49,9 @@ class FileUpload extends Component
     public function save()
     {
         foreach ($this->files as $file) {
-            // Récupérer le nom original du fichier
-            $getID3 = new getID3();
-            $fileInfo = $getID3->analyze($file->getRealPath());
-
-
-            // Récupération du nom de l'artiste et de l'album
-            $artist = $fileInfo['tags']['quicktime']['artist'][0] ?? 'Inconnu';
-            $album = $fileInfo['tags']['quicktime']['album'][0] ?? 'Inconnu';
-
-
             // Création de la structure de dossiers
-            $artist = preg_replace('/[^\w\s]/', '_', $artist); // Nettoyer le nom
-            $album = preg_replace('/[^\w\s]/', '_', $album);   // Nettoyer le nom
+            $artist = preg_replace('/[^\w\s]/', '_', $this->nomArtiste); // Nettoyer le nom
+            $album = preg_replace('/[^\w\s]/', '_', $this->nomAlbum);   // Nettoyer le nom
             $destinationPath = "uploads/$artist/$album";
 
             $originalFileName = $file->getClientOriginalName();
