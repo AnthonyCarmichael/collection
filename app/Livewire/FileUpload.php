@@ -19,16 +19,25 @@ class FileUpload extends Component
     public $nomArtiste = null;
     public $cover = null;
 
+
+    // Règles de validation
+    protected $rules = [
+        'nomArtiste' => 'required',  // Permet les lettres, chiffres, espaces, tirets et underscores
+        'nomAlbum'   => 'required',  // Idem pour l'album
+
+    ];
+
+    protected $messages = [
+        'nomArtiste.required' => 'Le nom de l\'artiste est obligatoire.',
+        'nomAlbum.required' => 'Le nom de l\'album est obligatoire.',
+    ];
+
     public function updatedFiles()
     {
         $this->processFiles();
     }
 
     public function processFiles() {
-
-        $this->nomAlbum = null;
-        $this->nomArtiste = null;
-        $this->cover = null;
 
         foreach ($this->files as $file) {
             // Récupérer le nom original du fichier
@@ -46,18 +55,25 @@ class FileUpload extends Component
 
     }
 
+
+
     public function save()
     {
+        $this->validate();
         foreach ($this->files as $file) {
             // Création de la structure de dossiers
-            $artist = preg_replace('/[^\w\s]/', '_', $this->nomArtiste); // Nettoyer le nom
-            $album = preg_replace('/[^\w\s]/', '_', $this->nomAlbum);   // Nettoyer le nom
+            $artist = preg_replace('/^[\s]+/', '', preg_replace('/[^\w\s_-]/', '_', $this->nomArtiste));  // Enlever les espaces au début et remplacer les caractères illégaux
+            $album = preg_replace('/^[\s]+/', '', preg_replace('/[^\w\s_-]/', '_', $this->nomAlbum));      // Idem pour l'album
             $destinationPath = "uploads/$artist/$album";
 
             $originalFileName = $file->getClientOriginalName();
 
             // Enregistrer le fichier avec son nom original
             $file->storeAs($destinationPath, $originalFileName, 'public');
+        }
+
+        if ($this->cover) {
+            $this->cover->storeAs($destinationPath, $this->cover->getClientOriginalName(), 'public');
         }
         
         session()->flash('success', 'Album ajouté');

@@ -7,8 +7,18 @@
 
     <form wire:submit.prevent="save">
         @csrf    
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <label for="nom" class="block text-sm font-medium text-gray-700 mb-2">Choisir un album</label>
-        <input type="file" name="files[]" multiple wire:model="files">
+        <input type="file" name="files[]" multiple wire:model.live="files">
 
         <div class="mt-2">
             @foreach ($files as $file)
@@ -17,13 +27,13 @@
         </div>
         <div class="mt-6">
             <label for="nomAlbum" class="block text-sm font-medium text-gray-700 mb-2">Nom de l'album</label>
-            <input type="text" name="nomAlbum" id="nomAlbum" wire:model="nomAlbum" class="rounded border-2 border-gray-200 mb-6 w-full">
+            <input type="text" name="nomAlbum" id="nomAlbum" wire:model.live="nomAlbum" class="rounded border-2 border-gray-200 mb-6 w-full">
 
             <label for="nomArtiste" class="block text-sm font-medium text-gray-700 mb-2">Nom de l'artiste</label>
-            <input type="text" name="nomArtiste" id="nomArtiste" wire:model="nomArtiste" class="rounded border-2 border-gray-200 mb-6  w-full">
+            <input type="text" name="nomArtiste" id="nomArtiste" wire:model.live="nomArtiste" class="rounded border-2 border-gray-200 mb-6  w-full">
 
             <label for="coverAlbum" class="block text-sm font-medium text-gray-700 mb-2">Image de l'album</label>
-            <input type="file" name="coverAlbum" id="coverAlbum" wire:model="cover">
+            <input type="file" name="coverAlbum" id="coverAlbum" wire:model.live="cover">
 
             @if ($cover)
                 <img src="{{ $cover->temporaryUrl() }}" alt="Image album" class="w-1/3 mt-2">
