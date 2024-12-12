@@ -15,6 +15,37 @@ class FileUpload extends Component
     public $files = [];
     public $showUpload =false;
 
+    public $nomAlbum = null;
+    public $nomArtiste = null;
+    public $cover = null;
+
+    public function updatedFiles()
+    {
+        $this->processFiles();
+    }
+
+    public function processFiles() {
+
+        $this->nomAlbum = null;
+        $this->nomArtiste = null;
+        $this->cover = null;
+
+        foreach ($this->files as $file) {
+            // Récupérer le nom original du fichier
+            $getID3 = new getID3();
+            $fileInfo = $getID3->analyze($file->getRealPath());
+
+            if ($fileInfo['fileformat'] == "png" || $fileInfo['fileformat'] == "jpg" || $fileInfo['fileformat'] == "jpeg") {
+                $this->cover = $file;
+            }
+            
+            // Récupération du nom de l'artiste et de l'album
+            $this->nomArtiste = $fileInfo['tags']['quicktime']['artist'][0] ?? 'Inconnu';
+            $this->nomAlbum = $fileInfo['tags']['quicktime']['album'][0] ?? 'Inconnu';
+        }
+
+    }
+
     public function save()
     {
         foreach ($this->files as $file) {
@@ -57,5 +88,9 @@ class FileUpload extends Component
     public function render()
     {
         return view('livewire.file-upload');
+    }
+
+    public function setArtiste($nom){
+        $this->nomArtiste = $nom;
     }
 }
