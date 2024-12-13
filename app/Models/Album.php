@@ -9,6 +9,7 @@ class Album extends Model
 {
 
     use HasFactory;
+    public $timestamps = false;
 
     // Ajoute 'idDossier' à la propriété fillable
     protected $fillable = [

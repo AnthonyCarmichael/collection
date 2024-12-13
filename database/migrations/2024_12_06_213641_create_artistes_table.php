@@ -17,7 +17,7 @@ return new class extends Migration
             // "usigned()" nécessaire pour éventuellement pouvoir définir une clé étrangère sur cette colonne.
             $table->string('nom');
             $table->string('folderPath');
-            $table->string('imgPath');
+            $table->string('imgPath')->nullable();
         });
     }
 
