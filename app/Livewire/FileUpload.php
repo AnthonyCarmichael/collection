@@ -60,6 +60,8 @@ class FileUpload extends Component
     public function save()
     {
         $this->validate();
+
+        
         foreach ($this->files as $file) {
             // Création de la structure de dossiers
             $artist = preg_replace('/^[\s]+/', '', preg_replace('/[^\w\s_-]/', '_', $this->nomArtiste));  // Enlever les espaces au début et remplacer les caractères illégaux
@@ -78,6 +80,8 @@ class FileUpload extends Component
         
         session()->flash('success', 'Album ajouté');
         $this->cleanLivewireTmp();
+
+
         return redirect()->route('collections');
         
     }

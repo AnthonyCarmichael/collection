@@ -10,6 +10,10 @@ class Chanson extends Model
 
     use HasFactory;
 
+    public $timestamps = true;
+    const CREATED_AT = 'creation_date';
+    const UPDATED_AT = 'updated_date';
+
     // Ajoute 'idDossier' à la propriété fillable
     protected $fillable = [
         'no',
@@ -21,6 +25,7 @@ class Chanson extends Model
         'id_langue',
         'id_genre',
         'id_user',
+        ''
 
     ];
 

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->bigInteger('id_langue')->unsigned()->nullable();
             $table->bigInteger('id_genre')->unsigned()->nullable();
             $table->bigInteger('id_user')->unsigned();
+            $table->timestamps();
 
         });
 
